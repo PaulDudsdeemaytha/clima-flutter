@@ -20,10 +20,11 @@ class _LoadingScreenState extends State<LoadingScreen> {
   }
 
   void getLocation() async {
+    //we can only await if there's a future set up. We are creating a Location obect from location.dart, then accessing one of it's method called getCurrentLocation()
     Location location = Location();
-    //we can only await if there's a future set up
+    // We await here b/c we need to wait for the currentLocation() to finish so that we can use the longitude and latitude in NetworkHelper
     await location.getCurrentLocation();
-
+    //NetworkHelper is found from networking.dart
     NetworkHelper networkHelper = NetworkHelper(
         'https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=$apiKey&units=metric');
     var weatherData = await networkHelper.getData();
