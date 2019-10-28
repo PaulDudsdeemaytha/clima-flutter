@@ -5,6 +5,13 @@ const apiKey = '40b158a0b0c200434d00f699e7cb2902';
 const openWeatherMapURL = 'https://api.openweathermap.org/data/2.5/weather';
 
 class WeatherModel {
+  Future<dynamic> getCityWeather(String cityName) async {
+    var url = '$openWeatherMapURL?q=$cityName&appid=$apiKey&units=metric';
+    NetworkHelper networkHelper = NetworkHelper(url);
+    var weatherData = await networkHelper.getData();
+    return weatherData;
+  }
+
   Future<dynamic> getLocationWeather() async {
     //we can only await if there's a future set up. We are creating a Location obect from location.dart, then accessing one of it's method called getCurrentLocation()
     Location location = Location();

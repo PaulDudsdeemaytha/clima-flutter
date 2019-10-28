@@ -18,3 +18,18 @@ const kButtonTextStyle = TextStyle(
 const kConditionTextStyle = TextStyle(
   fontSize: 100.0,
 );
+
+const kCitySearchBarStyle = InputDecoration(
+  hintText: 'Enter City Name',
+  hintStyle: TextStyle(color: Colors.grey),
+  icon: Icon(
+    Icons.local_airport,
+    size: 45,
+    color: Colors.white,
+  ),
+  filled: true,
+  border: OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(10.0)),
+      borderSide: BorderSide.none),
+  fillColor: Colors.white,
+);
